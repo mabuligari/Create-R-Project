@@ -84,7 +84,11 @@ fi
 sub_dirnames="R data doc figs output"
 
 for subdirname in ${sub_dirnames}; do
-  mkdir "${project_dirname}/${subdirname}/"
+  subdir="${project_dirname}/${subdirname}"
+  mkdir "${subdir}/"
+  # add an empty '.gitignore' file to subdir.
+  # Workaround for git with empty directories. 
+  touch "${subdir}/.gitignore"
 done
 
 ### 
